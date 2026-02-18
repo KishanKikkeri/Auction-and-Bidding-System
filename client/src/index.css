@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@plugin 'tailwindcss-animate';
+@import "tailwindcss";
+:root {
+  font-family: Poppins;
+  /* Primary Colors */
+  --primary: #020508; /* Vibrant Blue - main brand color */
+  --secondary: #10b981; /* Emerald Green - for success states and CTAs */
+  --accent: #020508; /* Purple - for highlights and accents */
+
+  /* Neutrals */
+  --background: #ffffff; /* Pure White - main background */
+  --surface: #f3f4f6; /* Light Gray - cards, secondary backgrounds */
+  --text: #1f2937; /* Dark Gray - primary text */
+
+  /* For dark mode (optional) */
+  --dark-background: #0f172a; /* Dark Navy */
+  --dark-surface: #1e293b; /* Slate Gray */
+  --dark-text: #f9fafb; /* Off-White */
+}
+.dark {
+  --background: oklch(0.12 0.01 260); /* Dark Navy */
+  --foreground: oklch(0.98 0 0); /* Off White */
+  --primary: oklch(0.6 0.2 260); /* Brighter Blue */
+  --accent: oklch(0.7 0.18 160); /* Luminous Teal */
+  --muted: oklch(0.3 0.02 260); /* Medium Gray */
+  --border: oklch(0.2 0.02 260);
+}
+
+@theme {
+  /* Main Colors */
+  --color-background: var(--background); /* White #FFFFFF */
+  --color-foreground: var(--text); /* Dark Gray #1F2937 */
+  --color-primary: var(--primary); /* Blue #3B82F6 */
+  --color-secondary: var(--secondary); /*Emerald Green  #10B981*/
+  --color-accent: var(--accent); /* Purple #8B5CF6 */
+  --color-muted: var(--surface); /* Light Gray #F3F4F6 */
+  --color-success: var(--secondary); /* Green #10B981 */
+  --color-failure: #ef4444; /* Red for errors and failures */
+
+  /* UI Elements */
+  --color-border: #e5e7eb; /* Lighter border color */
+  --color-ring: var(--primary); /* Use primary blue for focus rings */
+
+  /* Sidebar Styling */
+  --color-sidebar: var(--surface); /* Light Gray #F3F4F6 */
+  --color-sidebar-foreground: var(--text); /* Dark Gray #1F2937 */
+  --color-sidebar-border: var(--border); /* Light border color */
+  --color-sidebar-active: var(--primary); /* Blue #3B82F6 for active items */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    &:focus-visible {
+      @apply outline-ring outline-2 outline-offset-2;
+    }
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
